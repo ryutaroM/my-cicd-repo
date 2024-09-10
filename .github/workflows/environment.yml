@@ -1,0 +1,12 @@
+name: Environment variables
+on: push
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: main #environment variable BRANCH=main
+    steps:
+      - run: echo "${BRANCH}" #ref job level environment variable
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH }} #ref job level environment variable through env context
