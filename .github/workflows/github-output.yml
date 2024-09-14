@@ -1,0 +1,11 @@
+name: GITHUB_OUTPUT
+on: push
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - id: source
+        run: echo "result=Hello" >> "${GITHUB_OUTPUT}" # Write to GITHUB_OUTPUTß
+      - env:
+          RESULT: ${{ steps.source.outputs.result }} # Read from steps context
+        run: echo "${RESULT}"
