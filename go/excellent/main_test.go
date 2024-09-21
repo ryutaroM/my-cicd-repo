@@ -4,6 +4,7 @@ import (
 	"testing"
 )
 
+// Testing the EvenOrOdd function
 func TestEvenOrOdd(t *testing.T) {
 	result := EvenOrOdd(10)
 	if result != "even" {
