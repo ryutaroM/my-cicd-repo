@@ -1,0 +1,13 @@
+name: Test
+on:
+  pull_request: # Trigger on pull requests
+    paths: ["go/**/*.go"] # Only trigger on changes to Go files
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 #step1. checkout
+      - uses: actions/setup-go@v5 #step2. setup go
+        with:
+          go-version: 1.23
+      - run: go test go/excellent/*.go #step3. run tests
